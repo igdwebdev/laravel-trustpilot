@@ -1,0 +1,55 @@
+{
+    "name": "mccaulay/laravel-trustpilot",
+    "description": "Laravel PHP library for Trustpilot's API",
+    "keywords": [
+        "mccaulay",
+        "laravel-trustpilot",
+        "laravel",
+        "trustpilot"
+    ],
+    "homepage": "https://github.com/McCaulay/laravel-trustpilot",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "McCaulay Hudson",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/support": "^7.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "5.1.*",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "McCaulay\\Trustpilot\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "McCaulay\\Trustpilot\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "McCaulay\\Trustpilot\\Providers\\TrustpilotServiceProvider"
+            ],
+            "aliases": {
+                "Trustpilot": "McCaulay\\Trustpilot\\Facades\\Trustpilot"
+            }
+        }
+    }
+}
