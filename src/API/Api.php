@@ -42,12 +42,13 @@ class Api
         $this->config = config('trustpilot');
 
         $this->path = '/';
-        $this->endpoint = $this->config['endpoints.default'];
+        $this->endpoint = $this->config['endpoints']['default'];
 
         // Initalise the guzzle client
         $this->client = new Client([
             'headers' => [
                 'Content-Type' => 'application/json',
+                'apikey' => $this->config['api']['access_token'],
             ],
         ]);
     }

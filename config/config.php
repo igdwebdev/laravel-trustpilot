@@ -21,7 +21,7 @@ return [
     |
      */
     'api' => [
-        'acess_token' => env('TRUSTPILOT_ACCESS_TOKEN'),
+        'access_token' => env('TRUSTPILOT_ACCESS_TOKEN'),
     ],
 
     /*

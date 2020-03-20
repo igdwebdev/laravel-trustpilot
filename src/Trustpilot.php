@@ -2,6 +2,7 @@
 namespace McCaulay\Trustpilot;
 
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
+use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnitApi;
 use McCaulay\Trustpilot\Query\Builder;
 
 class Trustpilot
@@ -13,7 +14,7 @@ class Trustpilot
      */
     public function businessUnits(): Builder
     {
-        return new Builder(new BusinessUnit\BusinessUnitApi());
+        return new Builder(new BusinessUnitApi());
     }
 
     /**
@@ -25,12 +26,4 @@ class Trustpilot
     {
         return new BusinessUnit();
     }
-
-    // Trustpilot::businessUnits()->first()->reviews()->first();
-    // Trustpilot::businessUnit()->reviews()->first();
-    // Trustpilot::businessUnit()->logo();
-    // Trustpilot::businessUnit()->customerGuarantee();
-    // Trustpilot::businessUnit()->images();
-    // Trustpilot::businessUnit()->profile();
-    // Trustpilot::businessUnit()->promotion();
 }

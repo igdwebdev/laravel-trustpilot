@@ -30,21 +30,21 @@ class Builder
     /**
      * The number of items to pull back per page.
      *
-     * @var int
+     * @var null|int
      */
     private $limit = null;
 
     /**
      * The page to pull back.
      *
-     * @var int
+     * @var null|int
      */
     private $page = null;
 
     /**
      * The offset.
      *
-     * @var int
+     * @var null|int
      */
     private $offset = null;
 
@@ -118,6 +118,19 @@ class Builder
     }
 
     /**
+     * Search the queried items.
+     *
+     * @param string $value
+     * @return \Illuminate\Support\Collection
+     */
+    public function search(string $value): Collection
+    {
+        $query = $this->build();
+        $query['query'] = $value;
+        return $this->queryable->perform($query, true);
+    }
+
+    /**
      * Get all the items.
      *
      * @return \Illuminate\Support\Collection
@@ -140,7 +153,21 @@ class Builder
         return $this->page(null)
             ->offset(null)
             ->limit(1)
-            ->get();
+            ->get()
+            ->first();
+    }
+
+    /**
+     * Restrict the query by a where condition.
+     *
+     * @param string $field
+     * @param string|array $value
+     * @return \McCaulay\Trustpilot\Query\Builder
+     */
+    public function where(string $field, $value): Builder
+    {
+        $this->where[$field] = $value;
+        return $this;
     }
 
     /**
@@ -150,7 +177,7 @@ class Builder
      * @param string $order ("asc" or "desc")
      * @return \McCaulay\Trustpilot\Query\Builder
      */
-    public function order(string $field, $order): Builder
+    public function orderBy(string $field, string $order): Builder
     {
         $this->order[] = strtolower($field) . '.' . strtolower($order);
         return $this;
@@ -159,10 +186,10 @@ class Builder
     /**
      * Set the limit.
      *
-     * @param int $limit
+     * @param null|int $limit
      * @return \McCaulay\Trustpilot\Query\Builder
      */
-    public function limit(int $limit): Builder
+    public function limit(?int $limit): Builder
     {
         // Handle boundaries
         if ($limit < 1 || $limit > 100) {
@@ -176,10 +203,10 @@ class Builder
     /**
      * Set the page.
      *
-     * @param int $page
+     * @param null|int $page
      * @return \McCaulay\Trustpilot\Query\Builder
      */
-    public function page(int $page): Builder
+    public function page(?int $page): Builder
     {
         // Handle boundaries
         if ($page < 1) {
@@ -193,10 +220,10 @@ class Builder
     /**
      * Set the offset.
      *
-     * @param int $offset
+     * @param null|int $offset
      * @return \McCaulay\Trustpilot\Query\Builder
      */
-    public function offset(int $offset): Builder
+    public function offset(?int $offset): Builder
     {
         // Handle boundaries
         if ($offset < 1) {

@@ -1,7 +1,9 @@
 <?php
 namespace McCaulay\Trustpilot\API\BusinessUnit;
 
-class Review
+use McCaulay\Trustpilot\API\Item;
+
+class Review extends Item
 {
     //
 }
