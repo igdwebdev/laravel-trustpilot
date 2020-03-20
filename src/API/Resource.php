@@ -4,7 +4,7 @@ namespace McCaulay\Trustpilot\API;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 
-class Item implements Arrayable
+class Resource implements Arrayable
 {
     /**
      * Set the data.

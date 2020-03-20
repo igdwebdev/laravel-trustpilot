@@ -2,11 +2,11 @@
 namespace McCaulay\Trustpilot\API\BusinessUnit;
 
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\Api;
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
-use McCaulay\Trustpilot\Query\Queryable;
+use McCaulay\Trustpilot\API\Category\Category;
+use McCaulay\Trustpilot\API\ResourceApi;
 
-class BusinessUnitApi extends Api implements Queryable
+class BusinessUnitApi extends ResourceApi
 {
     /**
      * Initialise the business unit api
@@ -33,17 +33,6 @@ class BusinessUnitApi extends Api implements Queryable
     }
 
     /**
-     * Get the business.
-     *
-     * @param string $businessUnitId
-     * @return mixed
-     */
-    public function find(string $businessUnitId)
-    {
-        return $this->get('/' . $businessUnitId);
-    }
-
-    /**
      * Get the business categories.
      *
      * @param string $businessUnitId
@@ -53,10 +42,14 @@ class BusinessUnitApi extends Api implements Queryable
      */
     public function categories(string $businessUnitId, string $country = null, string $locale = null)
     {
-        return $this->get('/' . $businessUnitId . '/categories', array_filter([
+        $response = $this->get('/' . $businessUnitId . '/categories', array_filter([
             'country' => $country,
             'locale' => $locale,
-        ]))->categories;
+        ]));
+
+        return collect($response->categories)->map(function ($category) {
+            return (new Category())->data($category);
+        });
     }
 
     /**
@@ -66,7 +59,7 @@ class BusinessUnitApi extends Api implements Queryable
      * @param string $locale
      * @return mixed
      */
-    public function webLinks(string $businessUnitId, string $locale = 'en-US')
+    public function webLinks(string $businessUnitId, string $locale = 'en-GB')
     {
         return $this->get('/' . $businessUnitId . '/web-links', ['locale' => $locale]);
     }

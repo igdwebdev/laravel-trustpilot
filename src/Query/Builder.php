@@ -131,6 +131,18 @@ class Builder
     }
 
     /**
+     * Find the item.
+     *
+     * @param string $id
+     * @param array $params
+     * @return mixed
+     */
+    public function find(string $id, array $params = [])
+    {
+        return $this->queryable->find($id, $params);
+    }
+
+    /**
      * Get all the items.
      *
      * @return \Illuminate\Support\Collection

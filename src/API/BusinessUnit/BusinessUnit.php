@@ -1,10 +1,10 @@
 <?php
 namespace McCaulay\Trustpilot\API\BusinessUnit;
 
-use McCaulay\Trustpilot\API\Item;
+use McCaulay\Trustpilot\API\Resource;
 use McCaulay\Trustpilot\Query\Builder;
 
-class BusinessUnit extends Item
+class BusinessUnit extends Resource
 {
     /**
      * The business unit id.
@@ -62,7 +62,7 @@ class BusinessUnit extends Item
      * @param string $locale
      * @return mixed
      */
-    public function webLinks(string $locale = 'en-US')
+    public function webLinks(string $locale = 'en-GB')
     {
         return (new BusinessUnitApi())->webLinks($this->id, $locale);
     }

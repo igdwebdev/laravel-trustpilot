@@ -2,11 +2,10 @@
 namespace McCaulay\Trustpilot\API\BusinessUnit\Review;
 
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\Api;
 use McCaulay\Trustpilot\API\BusinessUnit\Review;
-use McCaulay\Trustpilot\Query\Queryable;
+use McCaulay\Trustpilot\API\ResourceApi;
 
-class ReviewApi extends Api implements Queryable
+class ReviewApi extends ResourceApi
 {
     /**
      * The business unit id.
@@ -32,9 +31,10 @@ class ReviewApi extends Api implements Queryable
      * Perform the query and get the results.
      *
      * @param array $query
+     * @param bool $search
      * @return \Illuminate\Support\Collection;
      */
-    public function perform(array $query): Collection
+    public function perform(array $query, bool $search = false): Collection
     {
         $response = $this->get('/reviews', $query);
         return collect($response->reviews)->map(function ($review) {

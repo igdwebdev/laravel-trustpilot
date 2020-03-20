@@ -3,6 +3,7 @@ namespace McCaulay\Trustpilot;
 
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnitApi;
+use McCaulay\Trustpilot\API\Category\CategoryApi;
 use McCaulay\Trustpilot\Query\Builder;
 
 class Trustpilot
@@ -25,5 +26,15 @@ class Trustpilot
     public function businessUnit(): BusinessUnit
     {
         return new BusinessUnit();
+    }
+
+    /**
+     * Get the category query builder.
+     *
+     * @return \McCaulay\Trustpilot\Query\Builder
+     */
+    public function categories(): Builder
+    {
+        return new Builder(new CategoryApi());
     }
 }
