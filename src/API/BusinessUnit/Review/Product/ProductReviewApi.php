@@ -1,11 +1,11 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Review;
+namespace McCaulay\Trustpilot\API\BusinessUnit\Review\Product;
 
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Review;
+use McCaulay\Trustpilot\API\BusinessUnit\Review;
 use McCaulay\Trustpilot\API\ResourceApi;
 
-class ReviewApi extends ResourceApi
+class ProductReviewApi extends ResourceApi
 {
     /**
      * The business unit id.
@@ -15,7 +15,7 @@ class ReviewApi extends ResourceApi
     public $businessUnitId = null;
 
     /**
-     * Initialise the business unit reviews with an optional business unit id.
+     * Initialise the business unit product reviews with an optional business unit id.
      * If no business unit id is given, it uses the business unit from the config.
      *
      * @param null|string $businessUnitId
@@ -24,7 +24,7 @@ class ReviewApi extends ResourceApi
     {
         parent::__construct();
         $this->businessUnitId = $businessUnitId ?? config('trustpilot.unit_id');
-        $this->setPath('/business-units/' . $this->businessUnitId);
+        $this->setPath('/product-reviews/business-units/' . $this->businessUnitId);
     }
 
     /**
@@ -37,8 +37,8 @@ class ReviewApi extends ResourceApi
     public function perform(array $query, bool $search = false): Collection
     {
         $response = $this->get('/reviews', $query);
-        return collect($response->reviews)->map(function ($review) {
-            return (new Review())->data($review);
+        return collect($response->productReviews)->map(function ($productReview) {
+            return (new ProductReview())->data($productReview);
         });
     }
 }

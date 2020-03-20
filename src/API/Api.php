@@ -87,7 +87,7 @@ class Api
     {
         $response = $this->client->request($method, $this->endpoint . $this->path . $path, [
             'query' => $query,
-            'form_params' => $params,
+            'json' => $params,
         ]);
         $contents = (string) $response->getBody();
         return json_decode($contents);

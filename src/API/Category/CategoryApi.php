@@ -7,7 +7,7 @@ use McCaulay\Trustpilot\API\ResourceApi;
 class CategoryApi extends ResourceApi
 {
     /**
-     * Initialise the business unit api
+     * Initialise the categories api
      */
     public function __construct()
     {

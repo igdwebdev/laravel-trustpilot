@@ -22,7 +22,7 @@ TRUSTPILOT_ACCESS_TOKEN=
 - Consumer Profile API
 - Invitation API
 - Private Products API
-- Private Reviews API
+- Product Reviews API -> Conversations, Invitation Link
 - Resources API
 - Service Reviews API
 - BUsiness Units API (Private Reviews)
@@ -80,6 +80,48 @@ $reviews = Trustpilot::businessUnit()
     ->offset(5)
     ->get()
     ->pluck('title');
+
+// Get the the first 10 product reviews of your business that are 4 or 5 stars for the specific products.
+$productReviews = Trustpilot::businessUnit()
+    ->products()->reviews()
+    ->where('sku', [
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ])
+    ->where('stars', [4, 5])
+    ->get();
+
+// Get the joined product review summary of the two specific products for your business.
+$productReviewSummary = Trustpilot::businessUnit()
+    ->products()
+    ->reviewSummary([
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ]);
+
+// Get the joined product review summary of the two specific products for your business by URL.
+$productReviewSummary = Trustpilot::businessUnit()
+    ->products()
+    ->reviewSummary([], [
+        'https://www.example.com/product_1',
+        'https://www.example.com/product_2',
+    ]);
+
+// Get the aggregated product review summary of the two specific products for your business.
+$aggregatedProductReviewSummaries = Trustpilot::businessUnit()
+    ->products()
+    ->reviewAggregatedSummaries([
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ]);
+
+// Get the batched product review summary of the two specific products for your business.
+$productReviewSummaries = Trustpilot::businessUnit()
+    ->products()
+    ->reviewBatchSummaries([
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ]);
 
 // Get the web links of your business.
 $webLinks = Trustpilot::businessUnit()->webLinks();
