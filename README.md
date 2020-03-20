@@ -26,37 +26,61 @@ TRUSTPILOT_ACCESS_TOKEN=
 
 - Get the 2nd page of business units with 5 per page.
 ```php
-        $businessUnits = Trustpilot::businessUnits()->limit(5)->page(2)->get();
+        $businessUnits = Trustpilot::businessUnits()
+            ->limit(5)
+            ->page(2)
+            ->get();
 ```
 
 - Search for the first business unit with the name 'Trustpilot'
 ```php
-        $businessUnit = Trustpilot::businessUnits()->search('Trustpilot')->first();
+        $businessUnit = Trustpilot::businessUnits()
+            ->search('Trustpilot')
+            ->first();
 ```
 
 - Get the first business unit's first review
 ```php
-        $review = Trustpilot::businessUnits()->first()->reviews()->first();
+        $review = Trustpilot::businessUnits()
+            ->first()
+            ->reviews()
+            ->first();
 ```
 
 - Get the logo of the searched business.
 ```php
-        $logo = Trustpilot::businessUnits()->search('Trustpilot')->first()->logo();
+        $logo = Trustpilot::businessUnits()
+        ->search('Trustpilot')
+        ->first()
+        ->logo();
 ```
 
 - Get three of your business reviews ordered by lowest star to highest.
 ```php
-        $reviews = Trustpilot::businessUnit()->reviews()->orderBy('stars', 'asc')->limit(3)->get();
+        $reviews = Trustpilot::businessUnit()
+            ->reviews()
+            ->orderBy('stars', 'asc')
+            ->limit(3)
+            ->get();
 ```
 
 - Get one of your business reviews which is one star and has a response.
 ```php
-        $review = Trustpilot::businessUnit()->reviews()->where('stars', 1)->where('responded', true)->first();
+        $review = Trustpilot::businessUnit()
+            ->reviews()
+            ->where('stars', 1)
+            ->where('responded', true)
+            ->first();
 ```
 
 - Get the review title of 5 of your reviews offseted by 5.
 ```php
-        $reviews = Trustpilot::businessUnit()->reviews()->limit(5)->offset(5)->get()->pluck('title');
+        $reviews = Trustpilot::businessUnit()
+            ->reviews()
+            ->limit(5)
+            ->offset(5)
+            ->get()
+            ->pluck('title');
 ```
 
 - Get the web links of your business.
