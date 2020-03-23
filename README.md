@@ -21,7 +21,6 @@ TRUSTPILOT_ACCESS_TOKEN=
 - Consumer API
 - Consumer Profile API
 - Invitation API
-- Private Products API
 - Product Reviews API -> Conversations, Invitation Link
 - Resources API
 - Service Reviews API
@@ -140,6 +139,31 @@ $profile = Trustpilot::businessUnit()->profile();
 
 // Get the promotion of your business.
 $promotion = Trustpilot::businessUnit()->promotion();
+```
+
+### Products
+```php
+// Get all products
+$products = Trustpilot::products()->get();
+
+// Get the product with a sku of "samsung-galaxy-s10"
+$product = Trustpilot::products()
+    ->where('skus', 'samsung-galaxy-s10')
+    ->first();
+
+// Get all products with a sku of "samsung-galaxy-s8", "samsung-galaxy-s9" or "samsung-galaxy-s10"
+$products = Trustpilot::products()
+    ->where('skus', ['samsung-galaxy-s8', 'samsung-galaxy-s9', 'samsung-galaxy-s10'])
+    ->get();
+
+// Updating a product
+$product = Trustpilot::products()
+    ->where('skus', 'samsung-galaxy-s10')
+    ->first();
+$product->title = 'Samsung Galaxy S10';
+$product->price = '9.99';
+$product->currency = 'USD';
+$product->save();
 ```
 
 ### Categories

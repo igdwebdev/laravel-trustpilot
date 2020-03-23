@@ -17,11 +17,25 @@ return [
     | Trustpilot API Access Token
     |--------------------------------------------------------------------------
     |
-    | The API access token for your trustpilot account.
+    | The API access key and secret for your trustpilot account.
     |
      */
     'api' => [
-        'access_token' => env('TRUSTPILOT_ACCESS_TOKEN'),
+        'key' => env('TRUSTPILOT_API_KEY'),
+        'secret' => env('TRUSTPILOT_API_SECRET'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Trustpilot Credentials
+    |--------------------------------------------------------------------------
+    |
+    | The login credentials for your trustpilot account.
+    |
+     */
+    'credentials' => [
+        'username' => env('TRUSTPILOT_USERNAME'),
+        'password' => env('TRUSTPILOT_PASSWORD'),
     ],
 
     /*
@@ -35,6 +49,19 @@ return [
     'endpoints' => [
         'default' => env('TRUSTPILOT_DEFAULT_ENDPOINT', 'https://api.trustpilot.com/v1'),
         'invitation' => env('TRUSTPILOT_INVITATION_ENDPOINT', 'https://invitations-api.trustpilot.com/v1'),
+        'oauth' => env('TRUSTPILOT_OAUTH_ENDPOINT', 'https://api.trustpilot.com/v1/oauth/oauth-business-users-for-applications'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Package cache settings
+    |--------------------------------------------------------------------------
+    |
+    | The cache prefix to be used for cache items in this package.
+    |
+     */
+    'cache' => [
+        'prefix' => env('TRUSTPILOT_CACHE_PREFIX', 'trustpilot'),
     ],
 
 ];

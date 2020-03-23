@@ -1,7 +1,7 @@
 <?php
 namespace McCaulay\Trustpilot\API\BusinessUnit;
 
-use McCaulay\Trustpilot\API\BusinessUnit\ProductApi;
+use McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi;
 use McCaulay\Trustpilot\API\Resource;
 use McCaulay\Trustpilot\Query\Builder;
 
@@ -36,13 +36,13 @@ class BusinessUnit extends Resource
     }
 
     /**
-     * Get the products api.
+     * Get the product api.
      *
-     * @return \McCaulay\Trustpilot\API\BusinessUnit\ProductApi
+     * @return \McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi
      */
     public function products(): ProductApi
     {
-        return new ProductApi($this->id);
+        return new Product\ProductApi($this->id);
     }
 
     /**

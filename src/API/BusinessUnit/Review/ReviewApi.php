@@ -32,7 +32,7 @@ class ReviewApi extends ResourceApi
      *
      * @param array $query
      * @param bool $search
-     * @return \Illuminate\Support\Collection;
+     * @return \Illuminate\Support\Collection
      */
     public function perform(array $query, bool $search = false): Collection
     {

@@ -49,6 +49,15 @@ class Builder
     private $offset = null;
 
     /**
+     * The array type.
+     * 1 - Array
+     * 2 - Comma Seperated
+     *
+     * @var int
+     */
+    private $arrayType = 1/*Array*/;
+
+    /**
      * Initialise the builder with a queryable resource.
      *
      * @param \McCaulay\Trustpilot\Query\Queryable $queryable
@@ -78,6 +87,11 @@ class Builder
                 // Handle date time format
                 if ($value instanceof \DateTime) {
                     $value = $value->format('Y-m-d\TH:i:s');
+                }
+
+                // Handle comma seperated array
+                if (is_array($value) && $this->arrayType == 2/*Comma*/) {
+                    $value = implode(',', $value);
                 }
 
                 // Set key / value
@@ -243,6 +257,28 @@ class Builder
         }
 
         $this->offset = $offset;
+        return $this;
+    }
+
+    /**
+     * Set the array type as an array.
+     *
+     * @return \McCaulay\Trustpilot\Query\Builder
+     */
+    public function setArrayAsArray(): Builder
+    {
+        $this->arrayType = 1/*Array*/;
+        return $this;
+    }
+
+    /**
+     * Set the array type as comma seperated.
+     *
+     * @return \McCaulay\Trustpilot\Query\Builder
+     */
+    public function setArrayAsComma(): Builder
+    {
+        $this->arrayType = 2/*Comma*/;
         return $this;
     }
 }

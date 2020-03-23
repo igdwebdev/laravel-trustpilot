@@ -1,11 +1,14 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit;
+namespace McCaulay\Trustpilot\API\BusinessUnit\Product;
 
-use McCaulay\Trustpilot\Api;
+use Illuminate\Support\Collection;
+use McCaulay\Trustpilot\API\BusinessUnit\Product\Product;
+use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewApi;
 use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewSummary;
+use McCaulay\Trustpilot\API\ResourceApi;
 use McCaulay\Trustpilot\Query\Builder;
 
-class ProductApi extends Api
+class ProductApi extends ResourceApi
 {
     /**
      * The business unit id.
@@ -27,13 +30,45 @@ class ProductApi extends Api
     }
 
     /**
+     * Perform the query and get the results.
+     *
+     * @param array $query
+     * @param bool $search
+     * @return \Illuminate\Support\Collection
+     */
+    public function perform(array $query, bool $search = false): Collection
+    {
+        $response = $this->get('/private/business-units/' . $this->businessUnitId . '/products', $query, true);
+        return collect($response->products)->map(function ($product) {
+            return (new Product())->data($product);
+        });
+    }
+
+    /**
+     * Save the products.
+     *
+     * @param array $products
+     * @return mixed
+     */
+    public function save(array $products)
+    {
+        $response = $this->post('/private/business-units/' . $this->businessUnitId . '/products', [], [
+            'products' => $products,
+        ], true);
+
+        return collect($response->products)->map(function ($product) {
+            return (new Product())->data($product);
+        });
+    }
+
+    /**
      * Get the queried product reviews.
      *
      * @return \McCaulay\Trustpilot\Query\Builder
      */
     public function reviews(): Builder
     {
-        return new Builder(new Review\Product\ProductReviewApi($this->businessUnitId));
+        return new Builder(new ProductReviewApi($this->businessUnitId));
     }
 
     /**

@@ -3,11 +3,22 @@ namespace McCaulay\Trustpilot;
 
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
 use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnitApi;
+use McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi;
 use McCaulay\Trustpilot\API\Category\CategoryApi;
 use McCaulay\Trustpilot\Query\Builder;
 
 class Trustpilot
 {
+    /**
+     * Get the default business unit.
+     *
+     * @return \McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit
+     */
+    public function businessUnit(): BusinessUnit
+    {
+        return new BusinessUnit();
+    }
+
     /**
      * Get the business unit query builder.
      *
@@ -19,13 +30,13 @@ class Trustpilot
     }
 
     /**
-     * Get the default business unit.
+     * Get the product query builder.
      *
-     * @return \McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit
+     * @return \McCaulay\Trustpilot\Query\Builder
      */
-    public function businessUnit(): BusinessUnit
+    public function products(): Builder
     {
-        return new BusinessUnit();
+        return (new Builder(new ProductApi()))->setArrayAsComma();
     }
 
     /**
