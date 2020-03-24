@@ -122,6 +122,36 @@ $productReviewSummaries = Trustpilot::businessUnit()
         'product_2_sku_here',
     ]);
 
+// Get three of your business imported reviews for the given product.
+$reviews = Trustpilot::businessUnit()
+    ->importedReviews()
+    ->where('sku', 'product_sku_here')
+    ->limit(3)
+    ->get();
+
+// Get five of your business imported reviews for the given products.
+$reviews = Trustpilot::businessUnit()
+    ->importedReviews()
+    ->where('sku', [
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ])
+    ->limit(5)
+    ->get();
+
+// Get the joined imported product review summary of the two specific products for your business.
+$productReviewSummary = Trustpilot::businessUnit()
+    ->products()
+    ->importedReviewSummary([
+        'product_1_sku_here',
+        'product_2_sku_here',
+    ]);
+
+// Get the joined imported product review summary of the specific product for your business.
+$productReviewSummary = Trustpilot::businessUnit()
+    ->products()
+    ->importedReviewSummary('product_1_sku_here');
+
 // Get the web links of your business.
 $webLinks = Trustpilot::businessUnit()->webLinks();
 

@@ -3,6 +3,7 @@ namespace McCaulay\Trustpilot\API\BusinessUnit\Product;
 
 use Illuminate\Support\Collection;
 use McCaulay\Trustpilot\API\BusinessUnit\Product\Product;
+use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ImportedProductReviewApi;
 use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewApi;
 use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewSummary;
 use McCaulay\Trustpilot\API\ResourceApi;
@@ -122,5 +123,34 @@ class ProductApi extends ResourceApi
         return collect($response->summaries)->map(function ($summary) {
             return (new ProductReviewSummary())->data($summary);
         });
+    }
+
+    /**
+     * Get the queried imported product reviews.
+     *
+     * @return \McCaulay\Trustpilot\Query\Builder
+     */
+    public function importedReviews(): Builder
+    {
+        return new Builder(new ImportedProductReviewApi($this->businessUnitId));
+    }
+
+    /**
+     * Get the joint imported products review summary.
+     *
+     * @param array|string $sku
+     * @return mixed
+     */
+    public function importedReviewSummary($sku)
+    {
+        if (is_array($sku)) {
+            $sku = implode(',', $sku);
+        }
+
+        $response = $this->get('/product-reviews/business-units/' . $this->businessUnitId . '/imported-reviews-summaries', [
+            'sku' => $sku,
+        ]);
+
+        return (new ProductReviewSummary())->data($response);
     }
 }
