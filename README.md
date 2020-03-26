@@ -20,7 +20,6 @@ TRUSTPILOT_ACCESS_TOKEN=
 ## TO-DO
 - Consumer API
 - Consumer Profile API
-- Invitation API
 - Product Reviews API -> Conversations, Invitation Link
 - Resources API
 - Service Reviews API
