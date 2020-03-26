@@ -12,11 +12,12 @@ class Trustpilot
     /**
      * Get the default business unit.
      *
+     * @param string|null $businessUnitId
      * @return \McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit
      */
-    public function businessUnit(): BusinessUnit
+    public function businessUnit(?string $businessUnitId = null): BusinessUnit
     {
-        return new BusinessUnit();
+        return new BusinessUnit($businessUnitId);
     }
 
     /**

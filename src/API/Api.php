@@ -83,6 +83,17 @@ class Api
     }
 
     /**
+     * Set the endpoint of the api.
+     *
+     * @return self
+     */
+    protected function setEndpoint(string $endpoint): self
+    {
+        $this->endpoint = $endpoint;
+        return $this;
+    }
+
+    /**
      * Set the path of the api.
      *
      * @return self

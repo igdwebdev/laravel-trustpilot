@@ -2,6 +2,7 @@
 namespace McCaulay\Trustpilot\API\BusinessUnit;
 
 use McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi;
+use McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi;
 use McCaulay\Trustpilot\API\Resource;
 use McCaulay\Trustpilot\Query\Builder;
 
@@ -42,7 +43,17 @@ class BusinessUnit extends Resource
      */
     public function products(): ProductApi
     {
-        return new Product\ProductApi($this->id);
+        return new ProductApi($this->id);
+    }
+
+    /**
+     * Get the invitation api.
+     *
+     * @return \McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi
+     */
+    public function invitation(): InvitationApi
+    {
+        return new InvitationApi($this->id);
     }
 
     /**

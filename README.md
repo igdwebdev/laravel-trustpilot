@@ -173,20 +173,20 @@ $promotion = Trustpilot::businessUnit()->promotion();
 
 ### Products
 ```php
-// Get all products
+// Get all products.
 $products = Trustpilot::products()->get();
 
-// Get the product with a sku of "samsung-galaxy-s10"
+// Get the product with a sku of "samsung-galaxy-s10".
 $product = Trustpilot::products()
     ->where('skus', 'samsung-galaxy-s10')
     ->first();
 
-// Get all products with a sku of "samsung-galaxy-s8", "samsung-galaxy-s9" or "samsung-galaxy-s10"
+// Get all products with a sku of "samsung-galaxy-s8", "samsung-galaxy-s9" or "samsung-galaxy-s10".
 $products = Trustpilot::products()
     ->where('skus', ['samsung-galaxy-s8', 'samsung-galaxy-s9', 'samsung-galaxy-s10'])
     ->get();
 
-// Updating a product
+// Updating a product.
 $product = Trustpilot::products()
     ->where('skus', 'samsung-galaxy-s10')
     ->first();
@@ -196,20 +196,82 @@ $product->currency = 'USD';
 $product->save();
 ```
 
+### Inivitations
+```php
+// Create a service invitation to John Doe from Business Name now.
+Trustpilot::businessUnit()->invitation()->service(
+    '#123456', 'John Doe', 'john.doe@example.com',
+    'no-reply@business.com', 'Business Name'
+);
+
+// Create a service invitation to John Doe from Business Name now to be sent
+// in 5 days using a custom template id and to redirect to our website afterwards.
+Trustpilot::businessUnit()->invitation()->service(
+    '#123456', 'John Doe', 'john.doe@example.com',
+    'no-reply@business.com', 'Business Name', 'support@business.com',
+    \Carbon\Carbon::now()->addDays(5), '507f191e810c19729de860ea',
+    'https://example.com/',
+);
+
+// Create a product and service invitation from product skus.
+Trustpilot::businessUnit()->invitation()->products(
+    ['samsung-galaxy-s8', 'samsung-galaxy-s9', 'samsung-galaxy-s10'],
+    '#123456', 'John Doe', 'john.doe@example.com',
+    'no-reply@business.com', 'Business Name'
+);
+
+// Create a product and service invitation from products.
+Trustpilot::businessUnit()->invitation()->products(
+    [
+        new Product([
+            'sku' => 'samsung-galaxy-s8',
+            'name' => 'Samsung Galaxy S8',
+            'brand' => 'Samsung Galaxy',
+            'productUrl' => 'https://example.com/products/samsung-galaxy-s8',
+            'imageUrl' => 'https://example.com/products/images/samsung-galaxy-s8.jpg',
+        ]),
+        new Product([
+            'sku' => 'samsung-galaxy-s10',
+            'name' => 'Samsung Galaxy S10',
+            'brand' => 'Samsung Galaxy',
+            'productUrl' => 'https://example.com/products/samsung-galaxy-s10',
+            'imageUrl' => 'https://example.com/products/images/samsung-galaxy-s10.jpg',
+        ]),
+    ],
+    '#123456', 'John Doe', 'john.doe@example.com',
+    'no-reply@business.com', 'Business Name'
+);
+
+// Get a list of templates available to be used in invitations.
+$templates = Trustpilot::businessUnit()->invitation()->templates();
+
+// Generate a service review invitation link.
+$inviteUrl = Trustpilot::businessUnit()->invitation()->generateLink('#123456', 'John Doe', 'john.doe@example.com', 'https://example.com/');
+
+// Delete all invitation data related to the given e-mails.
+Trustpilot::businessUnit()->invitation()->deleteByEmails([
+    'john.doe@example.com',
+    'jane.doe@example.com',
+]);
+
+// Delete all invitation data older than 5 years.
+Trustpilot::businessUnit()->invitation()->deleteBeforeDate(\Carbon\Carbon::now()->subYears(5));
+```
+
 ### Categories
 ```php
-// Get all categories
+// Get all categories.
 $categories = Trustpilot::categories()->get();
 
-// Get categories with a parent of "banking_money"
+// Get categories with a parent of "banking_money".
 $categories = Trustpilot::categories()
     ->where('parentId', 'banking_money')
     ->get();
 
-// Get category by id
+// Get category by id.
 $category = Trustpilot::categories()->find('trust_bank');
 
-// Get first three business units with the same category as your business unit
+// Get first three business units with the same category as your business unit.
 $businessUnits = Trustpilot::businessUnit()->categories()->first()->businessUnits()->limit(3)->get();
 ```
 

@@ -7,6 +7,16 @@ use Illuminate\Contracts\Support\Arrayable;
 class Resource implements Arrayable
 {
     /**
+     * Initalise the resource.
+     *
+     * @param array $data The resource data.
+     */
+    public function __construct($data = [])
+    {
+        $this->data($data);
+    }
+
+    /**
      * Set the data.
      *
      * @param  mixed  $data  The data.
