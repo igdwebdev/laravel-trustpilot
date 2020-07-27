@@ -1,13 +1,13 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation;
+namespace IGD\Trustpilot\API\BusinessUnit\Review\Invitation;
 
 use Carbon\Carbon;
 use DateTime;
+use IGD\Trustpilot\Api;
+use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\Template;
+use IGD\Trustpilot\API\BusinessUnit\Review\Review;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\Api;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation\Template;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Review;
 
 class InvitationApi extends Api
 {

@@ -1,5 +1,5 @@
 <?php
-namespace McCaulay\Trustpilot;
+namespace IGD\Trustpilot;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;

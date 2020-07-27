@@ -1,5 +1,5 @@
 <?php
-namespace McCaulay\Trustpilot\Tests;
+namespace IGD\Trustpilot\Tests;
 
 use PHPUnit\Framework\TestCase;
 

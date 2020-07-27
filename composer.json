@@ -1,13 +1,14 @@
 {
-    "name": "mccaulay/laravel-trustpilot",
+    "name": "igdwebdev/laravel-trustpilot",
     "description": "Laravel PHP library for Trustpilot's API",
     "keywords": [
         "mccaulay",
+        "igdwebdev",
         "laravel-trustpilot",
         "laravel",
         "trustpilot"
     ],
-    "homepage": "https://github.com/McCaulay/laravel-trustpilot",
+    "homepage": "https://github.com/igdwebdev/laravel-trustpilot",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -29,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "McCaulay\\Trustpilot\\": "src"
+            "IGD\\Trustpilot\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "McCaulay\\Trustpilot\\Tests\\": "tests"
+            "IGD\\Trustpilot\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "McCaulay\\Trustpilot\\Providers\\TrustpilotServiceProvider"
+                "IGD\\Trustpilot\\Providers\\TrustpilotServiceProvider"
             ],
             "aliases": {
-                "Trustpilot": "McCaulay\\Trustpilot\\Facades\\Trustpilot"
+                "Trustpilot": "IGD\\Trustpilot\\Facades\\Trustpilot"
             }
         }
     }

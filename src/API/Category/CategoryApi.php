@@ -1,8 +1,8 @@
 <?php
-namespace McCaulay\Trustpilot\API\Category;
+namespace IGD\Trustpilot\API\Category;
 
+use IGD\Trustpilot\API\ResourceApi;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\API\ResourceApi;
 
 class CategoryApi extends ResourceApi
 {

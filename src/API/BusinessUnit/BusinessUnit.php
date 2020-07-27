@@ -1,10 +1,10 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit;
+namespace IGD\Trustpilot\API\BusinessUnit;
 
-use McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi;
-use McCaulay\Trustpilot\API\Resource;
-use McCaulay\Trustpilot\Query\Builder;
+use IGD\Trustpilot\API\BusinessUnit\Product\ProductApi;
+use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi;
+use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Query\Builder;
 
 class BusinessUnit extends Resource
 {
@@ -29,7 +29,7 @@ class BusinessUnit extends Resource
     /**
      * Get the queried reviews.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function reviews(): Builder
     {
@@ -39,7 +39,7 @@ class BusinessUnit extends Resource
     /**
      * Get the product api.
      *
-     * @return \McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi
+     * @return \IGD\Trustpilot\API\BusinessUnit\Product\ProductApi
      */
     public function products(): ProductApi
     {
@@ -49,7 +49,7 @@ class BusinessUnit extends Resource
     /**
      * Get the invitation api.
      *
-     * @return \McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi
+     * @return \IGD\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi
      */
     public function invitation(): InvitationApi
     {

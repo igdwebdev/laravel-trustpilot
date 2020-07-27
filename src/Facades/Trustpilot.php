@@ -1,5 +1,5 @@
 <?php
-namespace McCaulay\Trustpilot\Facades;
+namespace IGD\Trustpilot\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

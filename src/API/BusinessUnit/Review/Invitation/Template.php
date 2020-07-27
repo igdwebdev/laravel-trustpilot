@@ -1,7 +1,7 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Review\Invitation;
+namespace IGD\Trustpilot\API\BusinessUnit\Review\Invitation;
 
-use McCaulay\Trustpilot\API\Resource;
+use IGD\Trustpilot\API\Resource;
 
 class Template extends Resource
 {

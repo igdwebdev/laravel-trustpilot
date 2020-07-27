@@ -1,7 +1,7 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Review;
+namespace IGD\Trustpilot\API\BusinessUnit\Review;
 
-use McCaulay\Trustpilot\API\Resource;
+use IGD\Trustpilot\API\Resource;
 
 class Review extends Resource
 {

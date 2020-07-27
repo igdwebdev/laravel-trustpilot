@@ -1,9 +1,9 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Review\Product;
+namespace IGD\Trustpilot\API\BusinessUnit\Review\Product;
 
+use IGD\Trustpilot\API\BusinessUnit\Review;
+use IGD\Trustpilot\API\ResourceApi;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\API\BusinessUnit\Review;
-use McCaulay\Trustpilot\API\ResourceApi;
 
 class ImportedProductReviewApi extends ResourceApi
 {

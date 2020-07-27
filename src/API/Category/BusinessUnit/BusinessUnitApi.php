@@ -1,9 +1,9 @@
 <?php
-namespace McCaulay\Trustpilot\API\Category\BusinessUnit;
+namespace IGD\Trustpilot\API\Category\BusinessUnit;
 
+use IGD\Trustpilot\API\BusinessUnit\BusinessUnit;
+use IGD\Trustpilot\API\ResourceApi;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
-use McCaulay\Trustpilot\API\ResourceApi;
 
 class BusinessUnitApi extends ResourceApi
 {

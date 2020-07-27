@@ -1,11 +1,11 @@
 <?php
-namespace McCaulay\Trustpilot;
+namespace IGD\Trustpilot;
 
-use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit;
-use McCaulay\Trustpilot\API\BusinessUnit\BusinessUnitApi;
-use McCaulay\Trustpilot\API\BusinessUnit\Product\ProductApi;
-use McCaulay\Trustpilot\API\Category\CategoryApi;
-use McCaulay\Trustpilot\Query\Builder;
+use IGD\Trustpilot\API\BusinessUnit\BusinessUnit;
+use IGD\Trustpilot\API\BusinessUnit\BusinessUnitApi;
+use IGD\Trustpilot\API\BusinessUnit\Product\ProductApi;
+use IGD\Trustpilot\API\Category\CategoryApi;
+use IGD\Trustpilot\Query\Builder;
 
 class Trustpilot
 {
@@ -13,7 +13,7 @@ class Trustpilot
      * Get the default business unit.
      *
      * @param string|null $businessUnitId
-     * @return \McCaulay\Trustpilot\API\BusinessUnit\BusinessUnit
+     * @return \IGD\Trustpilot\API\BusinessUnit\BusinessUnit
      */
     public function businessUnit(?string $businessUnitId = null): BusinessUnit
     {
@@ -23,7 +23,7 @@ class Trustpilot
     /**
      * Get the business unit query builder.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function businessUnits(): Builder
     {
@@ -33,7 +33,7 @@ class Trustpilot
     /**
      * Get the product query builder.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function products(): Builder
     {
@@ -43,7 +43,7 @@ class Trustpilot
     /**
      * Get the category query builder.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function categories(): Builder
     {

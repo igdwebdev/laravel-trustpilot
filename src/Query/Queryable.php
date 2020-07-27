@@ -1,5 +1,5 @@
 <?php
-namespace McCaulay\Trustpilot\Query;
+namespace IGD\Trustpilot\Query;
 
 use Illuminate\Support\Collection;
 

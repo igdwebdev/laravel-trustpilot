@@ -1,15 +1,15 @@
 <?php
-namespace McCaulay\Trustpilot\API\Category;
+namespace IGD\Trustpilot\API\Category;
 
-use McCaulay\Trustpilot\API\Resource;
-use McCaulay\Trustpilot\Query\Builder;
+use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Query\Builder;
 
 class Category extends Resource
 {
     /**
      * Get the queried business units in the category.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function businessUnits(): Builder
     {

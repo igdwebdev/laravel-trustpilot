@@ -1,5 +1,5 @@
 <?php
-namespace McCaulay\Trustpilot\API;
+namespace IGD\Trustpilot\API;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;

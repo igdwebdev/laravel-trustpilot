@@ -1,13 +1,13 @@
 <?php
-namespace McCaulay\Trustpilot\API\BusinessUnit\Product;
+namespace IGD\Trustpilot\API\BusinessUnit\Product;
 
+use IGD\Trustpilot\API\BusinessUnit\Product\Product;
+use IGD\Trustpilot\API\BusinessUnit\Review\Product\ImportedProductReviewApi;
+use IGD\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewApi;
+use IGD\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewSummary;
+use IGD\Trustpilot\API\ResourceApi;
+use IGD\Trustpilot\Query\Builder;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\API\BusinessUnit\Product\Product;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ImportedProductReviewApi;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewApi;
-use McCaulay\Trustpilot\API\BusinessUnit\Review\Product\ProductReviewSummary;
-use McCaulay\Trustpilot\API\ResourceApi;
-use McCaulay\Trustpilot\Query\Builder;
 
 class ProductApi extends ResourceApi
 {
@@ -65,7 +65,7 @@ class ProductApi extends ResourceApi
     /**
      * Get the queried product reviews.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function reviews(): Builder
     {
@@ -128,7 +128,7 @@ class ProductApi extends ResourceApi
     /**
      * Get the queried imported product reviews.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function importedReviews(): Builder
     {

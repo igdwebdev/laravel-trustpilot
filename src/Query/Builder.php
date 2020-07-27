@@ -1,15 +1,15 @@
 <?php
-namespace McCaulay\Trustpilot\Query;
+namespace IGD\Trustpilot\Query;
 
+use IGD\Trustpilot\Query\Queryable;
 use Illuminate\Support\Collection;
-use McCaulay\Trustpilot\Query\Queryable;
 
 class Builder
 {
     /**
      * The queryable resource.
      *
-     * @var \McCaulay\Trustpilot\Query\Queryable
+     * @var \IGD\Trustpilot\Query\Queryable
      */
     private $queryable;
 
@@ -60,7 +60,7 @@ class Builder
     /**
      * Initialise the builder with a queryable resource.
      *
-     * @param \McCaulay\Trustpilot\Query\Queryable $queryable
+     * @param \IGD\Trustpilot\Query\Queryable $queryable
      */
     public function __construct(Queryable $queryable)
     {
@@ -188,7 +188,7 @@ class Builder
      *
      * @param string $field
      * @param string|array $value
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function where(string $field, $value): Builder
     {
@@ -201,7 +201,7 @@ class Builder
      *
      * @param string $field
      * @param string $order ("asc" or "desc")
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function orderBy(string $field, string $order): Builder
     {
@@ -213,7 +213,7 @@ class Builder
      * Set the limit.
      *
      * @param null|int $limit
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function limit(?int $limit): Builder
     {
@@ -230,7 +230,7 @@ class Builder
      * Set the page.
      *
      * @param null|int $page
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function page(?int $page): Builder
     {
@@ -247,7 +247,7 @@ class Builder
      * Set the offset.
      *
      * @param null|int $offset
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function offset(?int $offset): Builder
     {
@@ -263,7 +263,7 @@ class Builder
     /**
      * Set the array type as an array.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function setArrayAsArray(): Builder
     {
@@ -274,7 +274,7 @@ class Builder
     /**
      * Set the array type as comma seperated.
      *
-     * @return \McCaulay\Trustpilot\Query\Builder
+     * @return \IGD\Trustpilot\Query\Builder
      */
     public function setArrayAsComma(): Builder
     {
