@@ -24,7 +24,7 @@ class ImportedProductReviewApi extends ResourceApi
     {
         parent::__construct();
         $this->businessUnitId = $businessUnitId ?? config('trustpilot.unit_id');
-        $this->setPath('/private/business-units/' . $this->businessUnitId);
+        $this->setPath('/product-reviews/business-units/' . $this->businessUnitId);
     }
 
     /**
@@ -36,7 +36,7 @@ class ImportedProductReviewApi extends ResourceApi
      */
     public function perform(array $query, bool $search = false): Collection
     {
-        $response = $this->get('/email-invitations', $query);
+        $response = $this->get('/imported-reviews', $query);
         return collect($response->productReviews)->map(function ($productReview) {
             return (new ProductReview())->data($productReview);
         });
