@@ -21,7 +21,7 @@
         "php": "^7.1.3",
         "illuminate/support": "^6.0|^7.0",
         "illuminate/contracts": "^6.0|^7.0",
-        "guzzlehttp/guzzle": "~6.0",
+        "guzzlehttp/guzzle": "~6.0|^7.0.1",
         "nesbot/carbon": "^2.31.0"
     },
     "require-dev": {
