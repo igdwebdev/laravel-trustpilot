@@ -3,7 +3,7 @@ namespace IGD\Trustpilot\API\BusinessUnit\Review\Invitation;
 
 use Carbon\Carbon;
 use DateTime;
-use IGD\Trustpilot\Api;
+use IGD\Trustpilot\API\Api;
 use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\Template;
 use IGD\Trustpilot\API\BusinessUnit\Review\Review;
 use Illuminate\Support\Arr;

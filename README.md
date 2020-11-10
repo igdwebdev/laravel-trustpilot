@@ -5,7 +5,7 @@
 You can install the package via composer:
 
 ```bash
-composer require igdwebdev/laravel-trustpilot
+composer require mccaulay/laravel-trustpilot
 ```
 
 ## Official Documentation
@@ -14,7 +14,10 @@ composer require igdwebdev/laravel-trustpilot
 ## Environment Variables
 ```
 TRUSTPILOT_UNIT_ID=
-TRUSTPILOT_ACCESS_TOKEN=
+TRUSTPILOT_API_KEY=
+TRUSTPILOT_API_SECRET=
+TRUSTPILOT_USERNAME=
+TRUSTPILOT_PASSWORD=
 ```
 
 ## TO-DO
@@ -23,7 +26,7 @@ TRUSTPILOT_ACCESS_TOKEN=
 - Product Reviews API -> Conversations, Invitation Link
 - Resources API
 - Service Reviews API
-- BUsiness Units API (Private Reviews)
+- Business Units API (Private Reviews)
 
 ## Usage
 ### Business Unit
@@ -87,6 +90,7 @@ $productReviews = Trustpilot::businessUnit()
         'product_2_sku_here',
     ])
     ->where('stars', [4, 5])
+    ->limit(10)
     ->get();
 
 // Get the joined product review summary of the two specific products for your business.
