@@ -212,7 +212,7 @@ Trustpilot::businessUnit()->invitation()->service(
 Trustpilot::businessUnit()->invitation()->service(
     '#123456', 'John Doe', 'john.doe@example.com',
     'no-reply@business.com', 'Business Name', 'support@business.com',
-    \Carbon\Carbon::now()->addDays(5), '507f191e810c19729de860ea',
+    now()->addDays(5), '507f191e810c19729de860ea',
     'https://example.com/',
 );
 
@@ -258,7 +258,7 @@ Trustpilot::businessUnit()->invitation()->deleteByEmails([
 ]);
 
 // Delete all invitation data older than 5 years.
-Trustpilot::businessUnit()->invitation()->deleteBeforeDate(\Carbon\Carbon::now()->subYears(5));
+Trustpilot::businessUnit()->invitation()->deleteBeforeDate(now()->subYears(5));
 ```
 
 ### Categories
