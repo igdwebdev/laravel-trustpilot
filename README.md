@@ -5,7 +5,7 @@
 You can install the package via composer:
 
 ```bash
-composer require mccaulay/laravel-trustpilot
+composer require igdwebdev/laravel-trustpilot
 ```
 
 ## Official Documentation
