@@ -148,7 +148,7 @@ class Api
     {
         $params['grant_type'] = $grantType;
 
-        $response = $this->client->request('GET', $this->config['endpoints']['oauth'] . $method, [
+        $response = $this->client->request('POST', $this->config['endpoints']['oauth'] . $method, [
             'headers' => [
                 'Authorization' => 'Basic ' . base64_encode($this->config['api']['key'] . ':' . $this->config['api']['secret']),
             ],
