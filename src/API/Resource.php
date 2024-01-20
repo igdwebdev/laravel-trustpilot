@@ -1,7 +1,6 @@
 <?php
 namespace IGD\Trustpilot\API;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Resource implements Arrayable
@@ -28,7 +27,7 @@ class Resource implements Arrayable
         foreach ($data as $key => $value) {
             // Handle dates
             if ($key == 'createdAt' || $key == 'updatedAt') {
-                $value = Carbon::parse($value);
+                $value = now()->parse($value);
             }
 
             $this->$key = $value;
