@@ -1,6 +1,7 @@
 <?php
 namespace IGD\Trustpilot\Providers;
 
+use IGD\Trustpilot\Trustpilot;
 use Illuminate\Support\ServiceProvider;
 
 class TrustpilotServiceProvider extends ServiceProvider
@@ -26,6 +27,6 @@ class TrustpilotServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'trustpilot');
 
         // Register the classes to use with the facade
-        $this->app->bind('trustpilot', 'IGD\Trustpilot\Trustpilot');
+        $this->app->bind('trustpilot', Trustpilot::class);
     }
 }

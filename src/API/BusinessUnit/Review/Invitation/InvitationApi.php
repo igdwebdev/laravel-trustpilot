@@ -1,7 +1,6 @@
 <?php
 namespace IGD\Trustpilot\API\BusinessUnit\Review\Invitation;
 
-use Carbon\Carbon;
 use DateTime;
 use IGD\Trustpilot\API\Api;
 use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\Template;
@@ -62,7 +61,7 @@ class InvitationApi extends Api
     ): void {
         // Default send product at
         if ($sendProductAt == null) {
-            $sendProductAt = $sendAt == null ? Carbon::now()->subDay() : $sendAt->copy()->addDay();
+            $sendProductAt = $sendAt == null ? now()->subDay() : $sendAt->copy()->addDay();
         }
 
         // Setup product review invitation array
@@ -121,7 +120,7 @@ class InvitationApi extends Api
     ): void {
         // Default send at
         if ($sendAt == null) {
-            $sendAt = Carbon::now()->subDays(2);
+            $sendAt = now()->subDays(2);
         }
 
         // Default sender email
