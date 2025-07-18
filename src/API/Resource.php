@@ -1,5 +1,5 @@
 <?php
-namespace IGD\Trustpilot\API;
+namespace IGD\Trustpilot\Api;
 
 use Illuminate\Contracts\Support\Arrayable;
 

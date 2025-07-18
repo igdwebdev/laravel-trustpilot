@@ -1,7 +1,7 @@
 <?php
-namespace IGD\Trustpilot\API\BusinessUnit\Review\Product;
+namespace IGD\Trustpilot\Api\BusinessUnit\Review\Product;
 
-use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Api\Resource;
 
 class ProductReview extends Resource
 {

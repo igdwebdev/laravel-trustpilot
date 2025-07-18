@@ -1,8 +1,8 @@
 <?php
-namespace IGD\Trustpilot\API\BusinessUnit\Product;
+namespace IGD\Trustpilot\Api\BusinessUnit\Product;
 
-use IGD\Trustpilot\API\BusinessUnit\Product\ProductApi;
-use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi;
+use IGD\Trustpilot\Api\Resource;
 
 class Product extends Resource
 {

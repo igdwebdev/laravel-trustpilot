@@ -1,8 +1,8 @@
 <?php
-namespace IGD\Trustpilot\API\BusinessUnit\Review\Product;
+namespace IGD\Trustpilot\Api\BusinessUnit\Review\Product;
 
-use IGD\Trustpilot\API\BusinessUnit\Review;
-use IGD\Trustpilot\API\ResourceApi;
+use IGD\Trustpilot\Api\BusinessUnit\Review;
+use IGD\Trustpilot\Api\ResourceApi;
 use Illuminate\Support\Collection;
 
 class ProductReviewApi extends ResourceApi

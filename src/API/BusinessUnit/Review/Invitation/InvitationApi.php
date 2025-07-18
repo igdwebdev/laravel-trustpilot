@@ -1,10 +1,10 @@
 <?php
-namespace IGD\Trustpilot\API\BusinessUnit\Review\Invitation;
+namespace IGD\Trustpilot\Api\BusinessUnit\Review\Invitation;
 
 use DateTime;
-use IGD\Trustpilot\API\Api;
-use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\Template;
-use IGD\Trustpilot\API\BusinessUnit\Review\Review;
+use IGD\Trustpilot\Api\Api;
+use IGD\Trustpilot\Api\BusinessUnit\Review\Invitation\Template;
+use IGD\Trustpilot\Api\BusinessUnit\Review\Review;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 

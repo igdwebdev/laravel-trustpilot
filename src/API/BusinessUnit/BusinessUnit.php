@@ -1,9 +1,9 @@
 <?php
-namespace IGD\Trustpilot\API\BusinessUnit;
+namespace IGD\Trustpilot\Api\BusinessUnit;
 
-use IGD\Trustpilot\API\BusinessUnit\Product\ProductApi;
-use IGD\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi;
-use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi;
+use IGD\Trustpilot\Api\BusinessUnit\Review\Invitation\InvitationApi;
+use IGD\Trustpilot\Api\Resource;
 use IGD\Trustpilot\Query\Builder;
 
 class BusinessUnit extends Resource
@@ -39,7 +39,7 @@ class BusinessUnit extends Resource
     /**
      * Get the product api.
      *
-     * @return \IGD\Trustpilot\API\BusinessUnit\Product\ProductApi
+     * @return \IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi
      */
     public function products(): ProductApi
     {
@@ -49,7 +49,7 @@ class BusinessUnit extends Resource
     /**
      * Get the invitation api.
      *
-     * @return \IGD\Trustpilot\API\BusinessUnit\Review\Invitation\InvitationApi
+     * @return \IGD\Trustpilot\Api\BusinessUnit\Review\Invitation\InvitationApi
      */
     public function invitation(): InvitationApi
     {

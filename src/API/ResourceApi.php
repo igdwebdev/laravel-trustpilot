@@ -1,7 +1,7 @@
 <?php
-namespace IGD\Trustpilot\API;
+namespace IGD\Trustpilot\Api;
 
-use IGD\Trustpilot\API\Api;
+use IGD\Trustpilot\Api\Api;
 use IGD\Trustpilot\Query\Queryable;
 
 abstract class ResourceApi extends Api implements Queryable

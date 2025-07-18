@@ -1,10 +1,10 @@
 <?php
 namespace IGD\Trustpilot;
 
-use IGD\Trustpilot\API\BusinessUnit\BusinessUnit;
-use IGD\Trustpilot\API\BusinessUnit\BusinessUnitApi;
-use IGD\Trustpilot\API\BusinessUnit\Product\ProductApi;
-use IGD\Trustpilot\API\Category\CategoryApi;
+use IGD\Trustpilot\Api\BusinessUnit\BusinessUnit;
+use IGD\Trustpilot\Api\BusinessUnit\BusinessUnitApi;
+use IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi;
+use IGD\Trustpilot\Api\Category\CategoryApi;
 use IGD\Trustpilot\Query\Builder;
 
 class Trustpilot
@@ -13,7 +13,7 @@ class Trustpilot
      * Get the default business unit.
      *
      * @param string|null $businessUnitId
-     * @return \IGD\Trustpilot\API\BusinessUnit\BusinessUnit
+     * @return \IGD\Trustpilot\Api\BusinessUnit\BusinessUnit
      */
     public function businessUnit(?string $businessUnitId = null): BusinessUnit
     {

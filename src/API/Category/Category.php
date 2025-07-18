@@ -1,7 +1,7 @@
 <?php
-namespace IGD\Trustpilot\API\Category;
+namespace IGD\Trustpilot\Api\Category;
 
-use IGD\Trustpilot\API\Resource;
+use IGD\Trustpilot\Api\Resource;
 use IGD\Trustpilot\Query\Builder;
 
 class Category extends Resource
