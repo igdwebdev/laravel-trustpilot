@@ -37,6 +37,16 @@ class BusinessUnit extends Resource
     }
 
     /**
+     * Get the queried private reviews (requires OAuth credentials).
+     *
+     * @return \IGD\Trustpilot\Query\Builder
+     */
+    public function privateReviews(): Builder
+    {
+        return new Builder(new Review\PrivateReviewApi($this->id));
+    }
+
+    /**
      * Get the product api.
      *
      * @return \IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi
