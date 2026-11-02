@@ -184,12 +184,19 @@ class Api
             $headers['Authorization'] = 'Bearer ' . $this->getAccessToken();
         }
 
-        // Perform request
-        $response = $this->client->request($method, $this->endpoint . $this->path . $path, [
+        $options = [
             'query' => $query,
-            'json' => $params,
             'headers' => $headers,
-        ]);
+        ];
+
+        // Only send a body when there is one; Trustpilot's private endpoints
+        // reject GET requests that carry a (even empty) JSON body with a 403.
+        if (!empty($params)) {
+            $options['json'] = $params;
+        }
+
+        // Perform request
+        $response = $this->client->request($method, $this->endpoint . $this->path . $path, $options);
         $contents = (string) $response->getBody();
         return json_decode($contents);
     }
