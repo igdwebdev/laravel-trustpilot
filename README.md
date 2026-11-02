@@ -74,6 +74,16 @@ $review = Trustpilot::businessUnit()
     ->where('responded', true)
     ->first();
 
+// Get private reviews (requires OAuth credentials). These include the invitation
+// referenceId and consumer details, which the public reviews endpoint does not.
+$reviews = Trustpilot::businessUnit()
+    ->privateReviews()
+    ->where('startDateTime', now()->subDay())
+    ->orderBy('createdat', 'asc')
+    ->limit(100)
+    ->page(1)
+    ->get();
+
 // Get the review title of 5 of your reviews offseted by 5.
 $reviews = Trustpilot::businessUnit()
     ->reviews()
