@@ -5,6 +5,8 @@ use IGD\Trustpilot\Api\BusinessUnit\BusinessUnit;
 use IGD\Trustpilot\Api\BusinessUnit\BusinessUnitApi;
 use IGD\Trustpilot\Api\BusinessUnit\Product\ProductApi;
 use IGD\Trustpilot\Api\Category\CategoryApi;
+use IGD\Trustpilot\Api\Consumer\Consumer;
+use IGD\Trustpilot\Api\Consumer\ConsumerApi;
 use IGD\Trustpilot\Query\Builder;
 
 class Trustpilot
@@ -48,5 +50,16 @@ class Trustpilot
     public function categories(): Builder
     {
         return new Builder(new CategoryApi());
+    }
+
+    /**
+     * Get a consumer (reviewer) by id.
+     *
+     * @param string $consumerId
+     * @return \IGD\Trustpilot\Api\Consumer\Consumer
+     */
+    public function consumer(string $consumerId): Consumer
+    {
+        return (new ConsumerApi())->find($consumerId);
     }
 }

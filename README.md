@@ -84,6 +84,9 @@ $reviews = Trustpilot::businessUnit()
     ->page(1)
     ->get();
 
+// Get a reviewer's profile, e.g. their country.
+$country = Trustpilot::consumer($review->consumer->id)->country;
+
 // Get the review title of 5 of your reviews offseted by 5.
 $reviews = Trustpilot::businessUnit()
     ->reviews()
